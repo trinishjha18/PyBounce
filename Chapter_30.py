@@ -2,7 +2,7 @@
 Chapter_30 is about working on pygames
 Created on: 2/16/24
 Modified on:2/16/24 by Trinish Jha
-Modified on: 3/9/24 by Rahul
+Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
 # Initialize pygame
@@ -27,7 +27,8 @@ bar_speed = 5
 ball_radius = 13
 ball_pos_x = 200
 ball_pos_y = 70
-
+# ball_speed = 2
+# ball_moving = True
 
 
 
@@ -35,39 +36,45 @@ running = True
 while running:
    # poll for events
    # pygame.QUIT event means the user clicked X to close your window
-   for event in pygame.event.get():
+    for event in pygame.event.get():
        if event.type == pygame.QUIT:
            running = False
 
 
-   # fill the screen with a color to wipe away anything from last frame
-   screen.fill("purple")
+    # fill the screen with a color to wipe away anything from last frame
+    screen.fill("purple")
 
 
 
 
-   keys = pygame.key.get_pressed()
-   if keys[pygame.K_LEFT] and bar_x > 0:
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and bar_x > 0:
        bar_x -= bar_speed
-   if keys[pygame.K_RIGHT] and bar_x < width - bar_width:
+    if keys[pygame.K_RIGHT] and bar_x < width - bar_width:
        bar_x += bar_speed
+    # if ball_moving:
+    #     # simple collison detection
+    #     if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+    #         ball_moving = False
+    #     else:
+    #         ball_pos_y += ball_speed
 
 
-   # Draw the basket
-   pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
+    # Draw the basket
+    pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
 
 
 
 
-   # Draw the ball
-   pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
+    # Draw the ball
+    pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
 
 
-   # flip() the display to put your work on screen
-   pygame.display.flip()
+    # flip() the display to put your work on screen
+    pygame.display.flip()
 
 
-   dt = clock.tick(60) / 1000
+    dt = clock.tick(60) / 1000
 
 
 pygame.quit()
