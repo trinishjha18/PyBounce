@@ -26,8 +26,8 @@ bar_speed = 5
 ball_radius = 13
 ball_pos_x = 200
 ball_pos_y = 70
-ball_speed = 2
-ball_moving = True
+ball_speed_y = 2
+ball_speed_x = 2
 
 running = True
 while running:
@@ -45,12 +45,27 @@ while running:
         bar_x -= bar_speed
     if keys[pygame.K_RIGHT] and bar_x < width - bar_width:
         bar_x += bar_speed
-    if ball_moving:
-        # simple collison detection
-        if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
-            ball_moving = False
-        else:
-            ball_pos_y += ball_speed
+
+
+    # Update ball's position
+    ball_pos_x += ball_speed_x
+    ball_pos_y += ball_speed_y
+
+    # Bounce off left and right walls
+    if ball_pos_x - ball_radius <= 0 or ball_pos_x + ball_radius >= width:
+        ball_speed_x = -ball_speed_x
+
+    # Bounce off the bar
+    if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+        ball_speed_y = -ball_speed_y  # Reverse the vertical direction
+
+    # Bounce off the top window edge
+    if ball_pos_y - ball_radius <= 0:
+        ball_speed_y = -ball_speed_y  # Reverse the vertical direction
+
+    # Ball disappears when it moves beyond the bottom of the window
+    if ball_pos_y - ball_radius > length:
+        ball_pos_x, ball_pos_y = -30, -30  # Move the ball off-screen
 
     # Draw the basket
     pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
