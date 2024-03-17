@@ -1,5 +1,5 @@
 """
-Chapter_30 is about working on pygames
+Chapter_30 is about working on pygame the ball bouncing game
 Created on: 2/16/24
 Modified on:3/17/24 by Trinish Jha
 Modified on: 3/15/24 by Rahul Tevatia
