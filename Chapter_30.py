@@ -45,20 +45,23 @@ while running:
         bar_x -= bar_speed
     if keys[pygame.K_RIGHT] and bar_x < width - bar_width:
         bar_x += bar_speed
-    if ball_moving:
-        # simple collison detection
-        if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
-            ball_moving = False
-        else:
-            ball_pos_y += ball_speed
 
     # Draw the basket
-    pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
+    paddle = pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
 
     # Draw the ball
+    ball_1 = pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
+    if ball_moving:
+        # simple collision detection
+        if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+            ball_speed *= -1
+            ball_pos_y += ball_speed
+        else:
+            ball_pos_y += ball_speed
+    if ball_pos_y == 2:
+        ball_speed *= -1
+        ball_pos_y += ball_speed
     pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
-
-    # flip() the display to put your work on screen
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
