@@ -51,13 +51,13 @@ while running:
 
     # Draw the ball
     pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
-        if ball_moving:
-        # simple collision detection
-            if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
-                ball_speed *= -1
-                ball_pos_y += ball_speed
-            else:
-                ball_pos_y += ball_speed
+    if ball_moving:
+    # simple collision detection
+        if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+            ball_speed *= -1
+            ball_pos_y += ball_speed
+        else:
+            ball_pos_y += ball_speed
     if ball_pos_y == 2:
         ball_speed *= -1
         ball_pos_y += ball_speed
