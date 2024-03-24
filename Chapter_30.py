@@ -58,6 +58,7 @@ while running:
             ball_pos_y += ball_speed
         else:
             ball_pos_y += ball_speed
+
     if ball_pos_y == 2:
         ball_speed *= -1
         ball_pos_y += ball_speed
