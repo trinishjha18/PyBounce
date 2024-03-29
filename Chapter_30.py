@@ -61,6 +61,7 @@ while running:
     if ball_pos_y == 2:
         ball_speed *= -1
         ball_pos_y += ball_speed
+
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
