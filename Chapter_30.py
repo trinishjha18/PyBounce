@@ -38,7 +38,7 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("black")
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and bar_x > 0:
@@ -61,9 +61,9 @@ while running:
     if ball_pos_y == 2:
         ball_speed *= -1
         ball_pos_y += ball_speed
-    pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
