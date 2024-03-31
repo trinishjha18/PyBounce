@@ -50,6 +50,7 @@ while running:
     paddle = pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
 
     # Draw the ball
+
     ball_1 = pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
     if ball_moving:
         # simple collision detection
