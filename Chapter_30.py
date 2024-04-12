@@ -1,8 +1,8 @@
 """
-Chapter_30 is about working on pygames.
+Chapter_30 is about working on pygame the ball bouncing game
 Created on: 2/16/24
-Modified on:2/16/24 by Trinish Jha
-Modified on: 3/10/24 by Rahul Tevatia
+Modified on:3/17/24 by Trinish Jha
+Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
 
@@ -38,7 +38,7 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("black")
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and bar_x > 0:
@@ -55,14 +55,27 @@ while running:
 
 
     # Draw the basket
-    pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
+    paddle = pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
 
     # Draw the ball
-    pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
 
-    # flip() the display to put your work on screen
+    ball_1 = pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
+    
+    if ball_moving:
+        # simple collision detection
+        if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+            ball_speed *= -1
+            ball_pos_y += ball_speed
+        else:
+            ball_pos_y += ball_speed
+    if ball_pos_y == 2:
+        ball_speed *= -1
+        ball_pos_y += ball_speed
+
+
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
