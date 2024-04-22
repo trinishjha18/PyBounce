@@ -5,6 +5,7 @@ Modified on:3/17/24 by Trinish Jha
 Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
+import random
 
 # Initialize pygame
 pygame.init()
@@ -24,7 +25,7 @@ bar_speed = 5
 
 # Settings for ball
 ball_radius = 13
-ball_pos_x = 200
+ball_pos_x = random.randint(ball_radius, width - ball_radius)
 ball_pos_y = 70
 ball_speed = 2
 ball_moving = True
@@ -46,11 +47,10 @@ while running:
     if keys[pygame.K_RIGHT] and bar_x < width - bar_width:
         bar_x += bar_speed
 
-    # Draw the basket
+    # Draw the paddle
     paddle = pygame.draw.rect(screen, (255, 255, 255), [bar_x, bar_y, bar_width, bar_length])
 
     # Draw the ball
-
     ball_1 = pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
     if ball_moving:
         # simple collision detection
