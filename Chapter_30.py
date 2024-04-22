@@ -25,9 +25,11 @@ bar_speed = 5
 
 # Settings for ball
 ball_radius = 13
-ball_pos_x = random.randint(ball_radius, width - ball_radius)
+# ball_pos_x = random.randint(12, width - ball_radius)
+ball_pos_x = 100
 ball_pos_y = 70
-ball_speed = 2
+ball_speed_y = 2
+ball_speed_x = 2
 # ball_moving = True
 
 running = True
@@ -52,16 +54,29 @@ while running:
 
     # Draw the ball
     ball = pygame.draw.circle(screen, "red", (ball_pos_x, ball_pos_y), ball_radius)
-    ball_pos_y += ball_speed
-    # simple collision detection
-    if ball_pos_y >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
-        ball_speed *= -1
-        ball_pos_y += ball_speed
-    if ball.top <= 0:
-        ball_pos_y += -ball_speed
+    ball_pos_y += ball_speed_y
+    ball_pos_x += ball_speed_x
 
+    # simple collision detection
+    if ball_pos_y + ball_radius >= bar_y and bar_x <= ball_pos_x <= bar_x + bar_width:
+        ball_speed_y *= -1
+    elif ball_pos_y <= 2:
+        ball_speed_y *= -1
+    if ball_pos_x >= width:
+        ball_speed_x *= -1
+    elif ball_pos_x <= 0:
+        ball_speed_x *= -1
+    # print(ball_pos_x, ball_pos_y)
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
