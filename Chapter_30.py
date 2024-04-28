@@ -66,6 +66,9 @@ while running:
         ball_speed_x *= -1
     elif ball_pos_x <= 0:
         ball_speed_x *= -1
+    if ball_pos_y > 550:
+        ball_speed_x *= 0
+        exit()
     # print(ball_pos_x, ball_pos_y)
     pygame.display.flip()
 
