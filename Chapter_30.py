@@ -6,31 +6,14 @@ Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
 import random
+from settings import *
 
 # Initialize pygame
 pygame.init()
 # Screen setup
-width = 640
-height = 480
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 dt = 0
-
-# Settings for bar
-bar_width = 70
-bar_length = 20
-bar_x = 135
-bar_y = 450
-bar_speed = 5
-
-# Settings for ball
-ball_radius = 13
-# ball_pos_x = random.randint(12, width - ball_radius)
-ball_pos_x = 100
-ball_pos_y = 70
-ball_speed_y = 2
-ball_speed_x = 2
-# ball_moving = True
 
 running = True
 while running:
@@ -69,12 +52,13 @@ while running:
     if ball_pos_y > height + ball_radius:
         ball_speed_x = 0
         ball_speed_y = 0
+    if ball_pos_y == 430 and ball_pos_x == bar_x:
+        ball_speed_y *= -1
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
 
 pygame.quit()
-
 
 def main():
     pass
