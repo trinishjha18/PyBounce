@@ -5,11 +5,11 @@ Modified on:3/17/24 by Trinish Jha
 Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
-import random
-from settings import *
+from settings import settings
 
 # Initialize pygame
 pygame.init()
+width, height, bar_width, bar_length, bar_y, bar_x, ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x, bar_speed = settings()
 # Screen setup
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
@@ -59,6 +59,7 @@ while running:
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
 
 def main():
     pass
