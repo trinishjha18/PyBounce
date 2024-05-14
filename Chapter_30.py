@@ -5,11 +5,16 @@ Modified on:3/17/24 by Trinish Jha
 Modified on: 3/15/24 by Rahul Tevatia
 """
 import pygame
-from settings import settings
+from settings import screen_settings
+from settings import bar_settings
+from settings import ball_settings
+
+width, height = screen_settings()
+bar_width, bar_length, bar_y, bar_x = bar_settings()
+ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x, bar_speed = ball_settings()
 
 # Initialize pygame
 pygame.init()
-width, height, bar_width, bar_length, bar_y, bar_x, ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x, bar_speed = settings()
 # Screen setup
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
@@ -53,6 +58,7 @@ while running:
         ball_speed_x = 0
         ball_speed_y = 0
     if ball_pos_y == 430 and ball_pos_x == bar_x:
+        # ball_speed_x *= -1
         ball_speed_y *= -1
     pygame.display.flip()
 
