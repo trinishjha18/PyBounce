@@ -14,7 +14,7 @@ def bar_settings():
     bar_x = 135
     bar_y = 450
     bar_speed = 5
-    return bar_width, bar_length, bar_y, bar_x,
+    return bar_width, bar_length, bar_y, bar_x, bar_speed
 
 
 def ball_settings():
@@ -25,4 +25,4 @@ def ball_settings():
     ball_pos_y = 70
     ball_speed_y = 2
     ball_speed_x = 2
-    return ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x, bar_speed
+    return ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x
