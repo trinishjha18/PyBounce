@@ -2,11 +2,12 @@
 Chapter_30 is about working on pygame the ball bouncing game
 Created on: 2/16/24
 Modified on:3/17/24 by Trinish Jha
-Modified on: 3/15/24 by Rahul Tevatia
+Modified on: 5/21/24 by Rahul Tevatia
 """
 import pygame
 from settings import screen_settings, bar_settings, ball_settings
 from collision_settings import collision
+
 
 width, height = screen_settings()
 
@@ -47,9 +48,11 @@ while running:
     ball_pos_y += ball_speed_y
     ball_pos_x += ball_speed_x
 
+
     # simple collision detection
     ball_speed_x, ball_speed_y = collision(width, height, bar_width, bar_y, bar_x, ball_pos_y, ball_speed_x,
                                            ball_speed_y, ball_radius, ball_pos_x)
+
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
