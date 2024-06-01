@@ -9,8 +9,10 @@ from settings import screen_settings, bar_settings, ball_settings
 from collision_settings import collision
 
 width, height = screen_settings()
-ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x = ball_settings()
+
 bar_width, bar_length, bar_y, bar_x, bar_speed = bar_settings()
+ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x = ball_settings()
+
 
 # Initialize pygame
 pygame.init()
