@@ -9,3 +9,9 @@ Homework - Make the ball bounce bake and forth for an unlimited amount of times
 
 June 10 2024
 Homework - Bring Game Over to the middle.
+
+June 17 2024
+Homework:
+1. Bring Game Over to the middle.
+2. Restart Button should be under the Game over text
+3. Write Play Again on the box, this cam be green

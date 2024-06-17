@@ -31,7 +31,14 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+        if game_over and event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            print(mouse_pos)
+            if restart_button.collidepoint(mouse_pos[0], mouse_pos[1]):
+                game_over = False
+                counter = 0
+                ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x = ball_settings()
+                bar_width, bar_length, bar_y, bar_x, bar_speed = bar_settings()
     if not game_over:
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("black")
@@ -55,24 +62,18 @@ while running:
         ball_speed_x, ball_speed_y, counter = collision(width, height, bar_width, bar_y, bar_x, ball_pos_y,
                                                         ball_speed_x,
                                                         ball_speed_y, ball_radius, ball_pos_x, counter)
+        if ball_speed_x == 0 and ball_speed_y == 0:
+            game_over = True
 
         text = font.render(f"Points: {counter}", True, green, blue)
-
-        # if ball_pos_y == 430 and ball_pos_x == bar_x:
-        #     x, y = event.pos
-        #     print(x, y)
-        #     if text_x - 5 <= x <= text_x + textx_size + 5:
-        #         if text_y - 5 <= y <= text_y + texty_size + 5:
-        #             in_main_menu = False
-        #             break
 
         screen.blit(text, (10, 10))
 
     else:
         text2 = font.render(f"GAME OVER", True, green, blue)
         screen.blit(text2, (height/2, width/2))
-    if ball_speed_x == 0 and ball_speed_y == 0:
-        game_over = True
+        restart_button = pygame.draw.rect(screen, (255, 255, 255), [70, 20, 60, 50])
+
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
