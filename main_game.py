@@ -33,8 +33,7 @@ while running:
             running = False
         if game_over and event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
-            print(mouse_pos)
-            if restart_button.collidepoint(mouse_pos[0], mouse_pos[1]):
+            if restart_button.collidepoint(mouse_pos):
                 game_over = False
                 counter = 0
                 ball_pos_y, ball_speed_x, ball_speed_y, ball_radius, ball_pos_x = ball_settings()
@@ -70,9 +69,11 @@ while running:
         screen.blit(text, (10, 10))
 
     else:
-        text2 = font.render(f"GAME OVER", True, green, blue)
-        screen.blit(text2, (height/2, width/2))
-        restart_button = pygame.draw.rect(screen, (255, 255, 255), [70, 20, 60, 50])
+        text2 = font.render(f"GAME OVER! :(", True, green, blue)
+        screen.blit(text2, (height/2 - 40, width/2 - 100))
+        restart_text = font.render(f"<----Play Again?", True, green, blue)
+        screen.blit(restart_text, (350, 271))
+        restart_button = pygame.draw.rect(screen, (255, 255, 255), [200, 271, 150, 50])
 
     pygame.display.flip()
 
