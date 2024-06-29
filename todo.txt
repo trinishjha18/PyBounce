@@ -15,3 +15,7 @@ Homework:
 1. Bring Game Over to the middle.
 2. Restart Button should be under the Game over text
 3. Write Play Again on the box, this cam be green
+
+Jun 26 2024
+1. Bring Restart and restart button to the center
+2. Display what level the user is on, this should be on the right side
