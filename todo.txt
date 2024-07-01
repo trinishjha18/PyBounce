@@ -19,3 +19,8 @@ Homework:
 Jun 26 2024
 1. Bring Restart and restart button to the center
 2. Display what level the user is on, this should be on the right side
+
+Jul 1 2024
+1. Comment the code and modules thoroughly
+2. Fix the side glitch
+3. Share results
