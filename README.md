@@ -1,14 +1,9 @@
 # PyBounce
-![PyBounce-1](https://github.com/KDBISGOD/PyBounce/assets/132794815/409d588e-2963-44cd-879f-1505747c3822)
-## Introduction:
-### PyBounce is a simple bar and ball bouncing game where you have to make sure the moving ball doesn't fall under the bar. Then if you miss the bar game ends.
+## Overview
+#### PyBounce is a simple game that uses a bar to keep a ball from falling down. This game is intended for people who are looking for a new game to beat. Although this game is functional it needs to be worked on and add new features to liven up this game, in the future I would like to implement some power-ups to help the user as the levels get harder.
 
-## Controls:
-### Left-Arrow = The bar moves toward the left
-### Right-Arrow = The bar moves toward the right
+## How Does The Game Work?
+#### Once the game has started the user will see a ball appear at the top of their screen. The ball will fall at a constant speed as you move your bar left and right across the screen to make sure the ball doesn't fall down. As you get more points your level will increase leading to a higher difficulty.
 
-## How The Game Works:
-### Move the bar side to side to keep the ball, but be aware, every two points the ball's speed increases. See how far you can get in the game.
-
-## Langauge:
-### Pybounce has been coded in python
+## Contributing
+#### Contributions would help me grow my project. Any contributions you make are greatly appreciated. If you have a suggestion that would make this project better please contact me.
