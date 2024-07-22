@@ -5,5 +5,9 @@
 ## How Does The Game Work?
 #### Once the game has started the user will see a ball appear at the top of their screen. The ball will fall at a constant speed as you move your bar left and right across the screen to make sure the ball doesn't fall down. As you get more points your level will increase leading to a higher difficulty.
 
+![image](https://github.com/user-attachments/assets/f89eb652-ded0-4369-bb6d-21806baf6ac8)
+
+
 ## Contributing
 #### Contributions would help me grow my project. Any contributions you make are greatly appreciated. If you have a suggestion that would make this project better please contact me.
+![image](https://github.com/user-attachments/assets/f04039f1-7d48-47dc-bb01-38ee00e9fba8)
